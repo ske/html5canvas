@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>sinus-logo</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" ></script>
+		<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+		<script type="text/javascript" src="logo.js" ></script>
+		<script type="text/javascript" src="charset8x8.js" ></script>
+		<style type="text/css">
+		  canvas {
+		    border: 1px dotted #e0e0e0;
+		  }
+		</style>
+	</head>
+	<body>
+		<div id="demos">
+			<canvas id="panel" width="320" height="100"></canvas>
+			<br />
+			<canvas id="panel2" width="320" height="100"></canvas>
+			<br />
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			if (!Modernizr.canvas) {
+				$('#demos').html('Browser does not support canvas.');
+				return;
+			}
+			
+			var scr = new Scroller("Hello world!", charset8x8);
+			scr.init('#panel');
+
+			var scr1 = new Scroller("This is the life in red.", charset8x8, [255, 0, 0]);
+			scr1.init('#panel2');
+
+		});
+	</script>
+</html>
